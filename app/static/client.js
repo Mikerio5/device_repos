@@ -71,7 +71,7 @@ function analyze() {
     }]
   };
   
-  var Chart = require('chart.js');
+  var Chart = require('Chart.js');
   var ctx = document.getElementById('myChart');
   var chart = new Chart(ctx, {
       type: 'bar',
