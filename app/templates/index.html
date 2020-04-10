@@ -1,98 +1,130 @@
 {% extends "template.html" %}
 {% block content %}
 
-  
-    <h1>Detect Device</h1>
 
-      <div class='no-display'>
-        <input id='file-input'
-               class='no-display'
-               type='file'
-               name='file'
-               accept='image/*'
-               onchange='showPicked(this)'>
-      </div>
-      
-      <div class='upload-label'>
-        <label id='upload-label' class="label label-primary">No file chosen</label>
-      </div>
-      <div>
-        <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
-      </div>
-      <div class='analyze'>
-        <button id='analyze-button' class='btn btn-primary' type='button' onclick='analyze()'>Analyze</button>
-      </div>
-      
-      <div id="results" style="display: none;">
-        <div class="table-responsive">
-          <table class="table">
-            <colgroup>
-              <col span="1" style="width: 25%;">
-              <col span="1" style="width: 75%;">              
-            </colgroup>
-            <thead>
-              <tr>
-                <th><span class="text-center">Label</span></th>
-                <th><span class="text-center">Prediction</span></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <span id="label_1" class="label label-primary">test</span>
-                </td>
-                <td>
-                  <div class="progress">                  
-                    <div id="progressbar_1" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="70"
-                    aria-valuemin="0" aria-valuemax="100" style="width:70%">            
-                    </div>
-                  </div>
-                </td> 
-              </tr>
-              <tr>
-                <td>
-                  <span id="label_2" class="label label-primary">test</span>
-                </td>
-                <td>
-                  <div class="progress">
-                    <div id="progressbar_2" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="70"
-                    aria-valuemin="0" aria-valuemax="100" style="width:70%">            
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <span id="label_3" class="label label-primary">test</span>
-                </td>
-                <td>              
-                  <div class="progress">
-                    <div id="progressbar_3" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="70"
-                    aria-valuemin="0" aria-valuemax="100" style="width:70%">            
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <span id="label_4" class="label label-primary">test</span>
-                </td>
-                <td>
-                  <div class="progress">
-                    <div id="progressbar_4" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="70"
-                    aria-valuemin="0" aria-valuemax="100" style="width:70%">            
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <canvas id="myChart" style="max-width: 500px;">
-        
-      </canvas>
-   
-    
-  
+<h1>Detect Device</h1>
+
+<div class='no-display'>
+  <input id='file-input' class='no-display' type='file' name='file' accept='image/*' onchange='showPicked(this)'>
+</div>
+
+<div class='upload-label'>
+  <label id='upload-label' class="label label-primary">No file chosen</label>
+</div>
+<div>
+  <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
+</div>
+<div class='analyze'>
+  <button id='analyze-button' class='btn btn-primary' type='button' onclick='analyze()'>Analyze</button>
+</div>
+
+<div id="results" style="display: none;">
+  <div class="table-responsive">
+    <table class="table">
+      <colgroup>
+        <col span="1" style="width: 25%;">
+        <col span="1" style="width: 75%;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th><span class="text-center">Label</span></th>
+          <th><span class="text-center">Prediction</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span id="label_1" class="label label-primary">test</span>
+          </td>
+          <td>
+            <div class="progress">
+              <div id="progressbar_1" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="70"
+                aria-valuemin="0" aria-valuemax="100" style="width:70%">
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span id="label_2" class="label label-primary">test</span>
+          </td>
+          <td>
+            <div class="progress">
+              <div id="progressbar_2" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="70"
+                aria-valuemin="0" aria-valuemax="100" style="width:70%">
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span id="label_3" class="label label-primary">test</span>
+          </td>
+          <td>
+            <div class="progress">
+              <div id="progressbar_3" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="70"
+                aria-valuemin="0" aria-valuemax="100" style="width:70%">
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span id="label_4" class="label label-primary">test</span>
+          </td>
+          <td>
+            <div class="progress">
+              <div id="progressbar_4" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="70"
+                aria-valuemin="0" aria-valuemax="100" style="width:70%">
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<canvas id="myChart" width="400" height="400"></canvas>
+<script>
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+</script>
+
+
+
 {% endblock %}
