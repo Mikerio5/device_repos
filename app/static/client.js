@@ -70,6 +70,7 @@ function analyze() {
         data: [10, 20, 30, 40, 50, 60, 70]
     }]
   };
+  
   var Chart = require('chart.js');
   var ctx = document.getElementById('myChart');
   var chart = new Chart(ctx, {
