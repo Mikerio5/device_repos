@@ -61,7 +61,7 @@ function analyze() {
     }
   };
   
-  dataForChart: {
+  dataForChart = {
     datasets: [{
         barPercentage: 0.5,
         barThickness: 6,
