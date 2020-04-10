@@ -71,7 +71,7 @@ function analyze() {
     }]
   };
   
-  var ctx = document.getElementById('myChart');
+  var ctx = document.getElementById('myChartBar');
   var chart = new Chart(ctx, {
       type: 'bar',
       data: dataForChart,
