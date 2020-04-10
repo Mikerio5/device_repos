@@ -64,14 +64,13 @@ function analyze() {
   dataForChart = {
     datasets: [{
         barPercentage: 0.5,
-        barThickness: 6,
-        maxBarThickness: 8,
-        minBarLength: 2,
-        data: [10, 20, 30, 40, 50, 60, 70]
+        barThickness: 12,
+        maxBarThickness: 20,
+        minBarLength: 0,
+        data: [10, 20, 30, 40, 50, 60, 90]
     }]
   };
   
-  var Chart = require('Chart.js');
   var ctx = document.getElementById('myChart');
   var chart = new Chart(ctx, {
       type: 'bar',
