@@ -11,10 +11,10 @@ from starlette.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
 from starlette.routing import Route
 
-export_file_url = 'https://drive.google.com/uc?export=download&id=1U6vmC0eY_ejOvFvHIjXUsvI7Jsn31SRd'
+export_file_url = 'https://drive.google.com/u/0/uc?id=1vapa0riXnHk1AcihVk9QAFpLZp1DVjUs&export=download'
 export_file_name = 'export.pkl'
 
-classes = ['cataract', 'glaucoma', 'normal', 'retina_disease']
+classes = ['gaming_laptop','gaming_pc','smartphone','tablet']
 path = Path(__file__).parent
 
 templates = Jinja2Templates(directory=str('app/templates'))
