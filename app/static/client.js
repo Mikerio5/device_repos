@@ -55,3 +55,32 @@ function analyze() {
   fileData.append("file", uploadFiles[0]);
   xhr.send(fileData);
 }
+
+
+
+optionsForChart = {
+  scales: {
+      xAxes: [{
+          gridLines: {
+              offsetGridLines: true
+          }
+      }]
+  }
+};
+
+dataForChart: {
+  datasets: [{
+      barPercentage: 0.5,
+      barThickness: 6,
+      maxBarThickness: 8,
+      minBarLength: 2,
+      data: [10, 20, 30, 40, 50, 60, 70]
+  }]
+};
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    type: 'bar',
+    data: dataForChart,
+    options: optionsForChart
+});
