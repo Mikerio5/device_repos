@@ -50,33 +50,58 @@ function analyze() {
     }
     el("analyze-button").innerHTML = "Analyze";
   };
-
-  optionsForChart = {
-    scales: {
-        xAxes: [{
-            gridLines: {
-                offsetGridLines: true
-            }
-        }]
-    }
-  };
-  
-  dataForChart = {
-    datasets: [{
-        barPercentage: 0.5,
-        barThickness: 12,
-        maxBarThickness: 20,
-        minBarLength: 0,
-        data: [10, 20, 30, 40, 50, 60, 90]
-    }]
-  };
   
   var ctx = document.getElementById('myChartBar');
-  var chart = new Chart(ctx, {
+    var myChart = new Chart(ctx, {
       type: 'bar',
-      data: dataForChart,
-      options: optionsForChart
-  });
+      data: {
+        labels: [`${response["results"][0][0]}`, `${response["results"][1][0]}`, `${response["results"][2][0]}`, `${response["results"][3][0]}`],
+        datasets: [{
+          label: 'Wahrscheinlichkeit für diesen Typ',
+          data: [Number(response["results"][0][1]), Number(response["results"][1][1]), Number(response["results"][2][1]), Number(response["results"][3][1])],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   var fileData = new FormData();
   fileData.append("file", uploadFiles[0]);
