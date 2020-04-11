@@ -1,4 +1,5 @@
 var el = x => document.getElementById(x);
+var myChart;
 
 function showPicker() {
   el("file-input").click();
@@ -32,7 +33,7 @@ function analyze() {
         myChart.destroy();
       }
       var ctx = document.getElementById('myChartBar');
-      var myChart = new Chart(ctx, {
+      myChart = new Chart(ctx, {
         type: 'bar',
         data: {
           labels: [`${response["results"][0][0]}`, `${response["results"][1][0]}`, `${response["results"][2][0]}`, `${response["results"][3][0]}`],
