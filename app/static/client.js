@@ -51,6 +51,7 @@ function analyze() {
     el("analyze-button").innerHTML = "Analyze";
   };
 
+  var ctx= document.getElementById('myChartBar');
   var myChart = new Chart(ctx, {
       type: 'bar',
       data: {
