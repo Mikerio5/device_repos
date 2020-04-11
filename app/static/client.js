@@ -51,7 +51,6 @@ function analyze() {
     el("analyze-button").innerHTML = "Analyze";
   };
 
-  import Chart from 'static/Chart.js';
   var myChart = new Chart(ctx, {
       type: 'bar',
       data: {
