@@ -49,7 +49,6 @@ function analyze() {
       el("progressbar_4").setAttribute('aria-valuenow', response["results"][3][1]);
     }
     el("analyze-button").innerHTML = "Analyze";
-  };
 
   var ctx= document.getElementById('myChartBar');
   var myChart = new Chart(ctx, {
@@ -84,6 +83,8 @@ function analyze() {
         }
       }
     });
+
+  };
 
 
   var fileData = new FormData();
