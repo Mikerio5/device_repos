@@ -29,8 +29,8 @@ function analyze() {
       var response = JSON.parse(e.target.responseText);
 
       el("results").style = "display: visible;";
-      el('myChartBar');
-      var myChart = new Chart(el, {
+      var ctx = document.getElementById('myChartBar');
+      var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
           labels: [`${response["results"][0][0]}`, `${response["results"][1][0]}`, `${response["results"][2][0]}`, `${response["results"][3][0]}`],
