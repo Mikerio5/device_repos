@@ -1,7 +1,5 @@
 {% extends "template.html" %}
 {% block content %}
-<h1>Detect Device</h1>
-
 <div class='no-display'>
   <input id='file-input' class='no-display' type='file' name='file' accept='image/*' onchange='showPicked(this)'>
 </div>
@@ -15,10 +13,4 @@
 <div class='analyze'>
   <button id='analyze-button' class='btn btn-primary' type='button' onclick='analyze()'>Analyze</button>
 </div>
-
-<div id="results" style="display: none;">
-  <canvas id="myChartBar"> </canvas>
-</div>
-
-
 {% endblock %}
