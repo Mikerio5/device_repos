@@ -27,8 +27,10 @@ function analyze() {
   xhr.onload = function (e) {
     if (this.readyState === 4) {
       var response = JSON.parse(e.target.responseText);
-
       el("results").style = "display: visible;";
+      if (myChart) {
+        myChart.destroy();
+      }
       var ctx = document.getElementById('myChartBar');
       var myChart = new Chart(ctx, {
         type: 'bar',
