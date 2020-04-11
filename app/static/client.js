@@ -51,8 +51,8 @@ function analyze() {
     el("analyze-button").innerHTML = "Analyze";
   };
 
-  require(['app/static/Chart.js'], function (Chart) {
-    var myChart = new Chart(ctx, {
+  import Chart from 'app/static/Chart.js';
+  var myChart = new Chart(ctx, {
       type: 'bar',
       data: {
         labels: [`${response["results"][0][0]}`, `${response["results"][1][0]}`, `${response["results"][2][0]}`, `${response["results"][3][0]}`],
@@ -84,7 +84,6 @@ function analyze() {
         }
       }
     });
-  });
 
 
   var fileData = new FormData();
