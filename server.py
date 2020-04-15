@@ -89,15 +89,6 @@ async def homepage(request):
 def redirect_to_homepage(request):
     return RedirectResponse("/")
 
-# routes = [
-#     Route("/", endpoint=homepage),
-#     Route("/upload", endpoint=upload, methods=["POST"]),
-#     Route("/classify-url", endpoint=classify_url, methods=["GET"]),
-#     Route("/form", endpoint=redirect_to_homepage),
-# ]
-
-
-
 if __name__ == '__main__':
     if 'serve' in sys.argv:
         uvicorn.run(app=app, host='0.0.0.0', port=5000, log_level="info")
