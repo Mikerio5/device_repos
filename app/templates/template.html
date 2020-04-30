@@ -30,6 +30,34 @@
     <div class="container-fluid">
         <div class="row">
             <nav class="col-md-2 d-none d-md-block bg-light sidebar" style="width: auto;">
+                <h3>
+                    Device Classifier
+                    <small class="text-muted">  Destinguishes between Smartphone, Tablets, Laptops and PCs</small>
+                  </h3>
+                <p class="text-justify">
+                    This is a short example Projekt provided with Starlet and a basic image classifier made with the Fast.ai Framework.
+
+                    This project can destinguish different pictures based on the trained Model in the background.
+                    It was trained to recognize pictures which include the following:
+                    <ul>
+                        <li>Laptop</li>
+                        <li>PC</li>
+                        <li>Smartphone</li>
+                        <li>Tablet</li>
+                    </ul>
+                </p>
+                
+                <h4>
+                    How to use this projekt
+                </h4>
+                <p class="text-justify">
+                    Steps:
+                    <ol>
+                        <li>Upload picture on the left side</li>
+                        <li>Click Analyse</li>
+                        <li>You should now see the result of the classifier in the Chart</li>
+                    </ol>
+                </p>
                 <div class="sidebar-sticky">
                     {% block content %} {% endblock %}
                 </div>
